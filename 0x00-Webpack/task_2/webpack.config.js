@@ -1,16 +1,20 @@
 const path = require('path');
 
 module.exports = {
-  entry: './js/dashboard_main.js'),
+  entry: './js/dashboard_main.js',
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'public'),
   },
   mode: 'production',
+  performance: {
+    maxAssetSize: 1000000,
+    maxEntrypointSize: 1000000,		  
+  },	
   module: {
     rules: [
       {
-        test: /\.css$/,
+        test: /\.css$/i,
         use: [
           'style-loader',
           'css-loader'
@@ -23,7 +27,8 @@ module.exports = {
           {
             loader: 'image-webpack-loader',
             options: {
-              disable: 'true', // Disable during development
+              byPassOnDebug: true,		    
+              disable: 'true', 
             },
           },
         ],
