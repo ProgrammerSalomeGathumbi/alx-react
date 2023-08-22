@@ -5,18 +5,9 @@ const { CleanWebpackPlugin } = required('clean-webpack-plugin')
 module.exports = {
   mode: 'development', 
   entry:{
-     header: {
-         import: 'modules/header/header.js',
-         dependOn: 'shared',    	
-	     },
-     body: { 
-         import: 'modules/body/body.js',
-         dependOn: 'shared',    	
-	   },
-     footer: {
-         import: 'modules/footer/footer.js',
-         dependOn: 'shared',    	
-	     },
+     header: 'modules/header/header.js',
+     body: 'modules/body/body.js',
+     footer: 'modules/footer/footer.js',
      shared: 'jquery',     
   },	  
   output: {
