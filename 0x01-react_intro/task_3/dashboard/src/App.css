@@ -1,0 +1,24 @@
+.App {
+  text-align: center;
+}
+
+.App-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: red;
+  border-bottom: solid red;
+}
+.App_logo {
+  width: 200px;
+  height: 200px;
+  float: left;
+}
+.App_body {
+  border-bottom: solid red;
+}
+.App-footer {
+  text-align: center;
+  font-style: italic;
+}
