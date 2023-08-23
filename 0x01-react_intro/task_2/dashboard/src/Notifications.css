@@ -2,3 +2,9 @@
   padding: 2rem;
   border: 2px solid red;	    
 }
+li[data="default"] {
+  color: blue;
+}
+li[data="urgent"] {
+  color: red;
+}
