@@ -13,6 +13,7 @@
 .App_logo {
   width: 200px;
   height: 200px;
+  float: left;
 }
 .App_body {
   border-bottom: solid red;
