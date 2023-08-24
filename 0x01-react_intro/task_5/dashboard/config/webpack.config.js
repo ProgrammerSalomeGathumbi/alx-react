@@ -39,13 +39,16 @@ resolve: {
 	 },
   plugins: [
     new HtmlWebpackPlugin({
+      name: "index.html",
+      inject:false,      
       template: './dist/index.html',
     }),
     ],
   devServer: {
     static: './dist',	  
     port: 8564, 
-    open: true, 
+    open: true,
+    compress: true 
     hot: true,
   },
   devtool: 'inline-source-map',   
