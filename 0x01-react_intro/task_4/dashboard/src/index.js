@@ -11,8 +11,8 @@ root.render(
   </React.StrictMode>
 );
 
-const rootNotofiactions = ReactDOM.createRoot(document.getElementById('root-notification'));
-rootNotification.render(
+const rootNotifications = ReactDOM.createRoot(document.getElementById('root-notifications'));
+rootNotifications.render(
   <React.StrictMode>
     <Notifications />
   </React.StrictMode>
