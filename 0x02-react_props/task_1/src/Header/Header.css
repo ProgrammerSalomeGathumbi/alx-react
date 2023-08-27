@@ -1,0 +1,13 @@
+.App-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: red;
+    border-bottom: solid red;
+  }
+  .App-logo {
+    width: 200px;
+    height: 200px;
+    float: left;
+  }
