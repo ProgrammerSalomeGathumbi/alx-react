@@ -9,7 +9,7 @@ function Notifications() {
       <p style={{right: "2px", top: "2px", display: "inline"}}>Here is the list of notifications</p>
         
       <button
-            aria-label: "Close"
+        aria-label="Close"
         onClick={console.log("Close button has been clicked")}>
         <img src={closeIcon} alt="closeIcon"/>
         </button>
