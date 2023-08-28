@@ -10,12 +10,12 @@
   color: red;
   border-bottom: solid red;
 }
-.App_logo {
+.App-header img {
   width: 200px;
   height: 200px;
   float: left;
 }
-.App_body {
+.App-body {
   border-bottom: solid red;
 }
 .App-footer {
