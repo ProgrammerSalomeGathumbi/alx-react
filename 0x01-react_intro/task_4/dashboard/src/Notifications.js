@@ -6,13 +6,14 @@ import { getLatestNotification} from "./utils"
 function Notifications() {
   return (
      <div className="Notifications">
-      <button>
-        style={{right: "2px", top: "2px"}}
-        aria-label: "Close"
-        onClick={console.log("Close button has been clicked")}
+      <p style={{right: "2px", top: "2px", display: "inline"}}>Here is the list of notifications</p>
+        
+      <button
+            aria-label: "Close"
+        onClick={console.log("Close button has been clicked")}>
         <img src={closeIcon} alt="closeIcon"/>
         </button>
-       <p>Here is the list of notifications</p>
+       
        <ul>
         <li data="default">New course available</li>
         <li data="urgent">New resume available</li>
