@@ -18,14 +18,14 @@ module.exports = {
         test: /\.(gif|svg|png|jpg|jpeg)$/i,
         type: 'asset/resource',
         use: [
+	    'file-loader',	
 	  {
-	    loader: 'file-loader', 
+	    loader:'image-webpack-loader',
             options: {
 	            byPassOnDebug: true,
                     disable: true, 				   
 	    },		    
 	},
-        'image-webpack-loader',
 	],	
       },
       {
@@ -47,8 +47,8 @@ resolve: {
     }),
     ],
   devServer: {
-    static: './dist',	  
-    port: 8564, 
+    static: './dist',
+    port: 8564,	    
     open: true,
     compress: true, 
     hot: true,

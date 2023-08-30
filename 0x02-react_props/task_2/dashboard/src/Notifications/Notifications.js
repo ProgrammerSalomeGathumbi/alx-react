@@ -8,9 +8,9 @@ function Notifications() {
   return (
      <div className="Notifications">
       <button>
-        style={{right: "2px", top: "2px"}}
+        style={{ right: "2px", top: "2px" }}
         aria-label: "Close"
-        onClick={console.log("Close button has been clicked")}
+        onClick={() => {console.log("Close button has been clicked")}}
         <img src={closeIcon} alt="closeIcon"/>
         </button>
        <p>Here is the list of notifications</p>

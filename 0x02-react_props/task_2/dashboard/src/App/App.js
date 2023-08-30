@@ -8,17 +8,11 @@ import Footer from '../Footer/Footer';
 function App() {
   return (
     <React.Fragment>
-      <Notifications/>
+      <Notifications />
       <div className="App">
-      <div className="App-header">
-      <Header/>
-      </div>
-      <div className="App-body">
-        <Login/>
-      </div>
-      <div className="App-footer">
-	     <Footer/>
-      </div>
+      <Header />
+      <Login />
+     <Footer />
      </div>	 
     </React.Fragment>
   );
