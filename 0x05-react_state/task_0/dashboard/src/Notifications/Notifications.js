@@ -62,19 +62,26 @@ class Notifications extends React.Component {
      this.markAsRead = this.markAsRead.bind(this);
    }
    shouldComponentUpdate(nextProps) {
-		return nextProps.length > this.props.listNotifications.length;
+     return (nextProps.length > this.props.listNotifications.length ||
+	     nextProps.displayDrawer !== this.props.displayDrawer
+	);
    }
    markAsRead(id) {
      console.log(`Notification ${id} has been marked as read`);
    }   
   render () {
+	  const {displayDrawer,	listNotifications,handleDisplayDrawer,handleHideDrawer,
+		} = this.props;
    return (
      <React.Fragment>
-         <div className={css(styles.menuItem)}>
+     <div className={displayDrawer ? css(styles.notificationsContainer, styles.drawerOpen) : css(styles.notificationsContainer)}>
+
+         <div className={displayDrawer ? css(styles.none) : css(styles.menuItem, styles.hover)}	onClick={() => {
+			handleDisplayDrawer();}}>
 			  <p>Your notifications</p>
 			  </div>
 
-	{this.props.displayDrawer ? (<div className={css(styles['flex-area']) onClick={this.props.handleDisplayDrawer} }>
+	{displayDrawer ? (<div className={css(styles['flex-area'])}>
 			  <div className={css(styles.Notifications, styles.mobile)}>
                           <ul>
 			    {this.props.listNotifications && this.props.listNotifications.length > 0 ? (
@@ -84,7 +91,7 @@ class Notifications extends React.Component {
                            ) : (
 			  <div className={css(styles['notification-header'])}>
                           <NotificationItem value='No new notification for now' />
-			  <button aria-label='Close' onClick={console.log('Close button has been clicked')} this.props.handleHideDrawer(); >
+			  <button aria-label='Close' onClick={console.log('Close button has been clicked')} handleHideDrawer(); >
                           <img src={closeIcon} alt='Close-Icon'	/>
 			  </button>
 			  </div>
