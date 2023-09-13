@@ -1,4 +1,4 @@
-import { fromJS } from './node_modules/immutable/dist/immutable'; 
+import { fromJS } from 'immutable'; 
 
 const getImmutableObject = (object) => fromJS(object);
 
