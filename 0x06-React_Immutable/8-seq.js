@@ -1,7 +1,8 @@
 import { Seq } from 'immutable';
 
 export default function printBestStudents(grades) {
-    const filtered = seq(grades)
+    const seq = Seq(grades)
+    const filtered = seq
     .filter(student => student.score >= 70)
     .map(student => ({
       ...student,
@@ -11,4 +12,3 @@ export default function printBestStudents(grades) {
     .toObject();
     console.log(filtered);    
 }
-module.exports = printBestStudents;
