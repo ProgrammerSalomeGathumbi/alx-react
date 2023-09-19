@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
 			gap: '0.5em',
 		},
 	},
-        button : : {
+        button: {
 		'@media (max-width: 900px)': {
 			border: '2px solid gold',
 			backgroundColor: 'transparent',
@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
 		},
 	}, 
 });
-class Login extend React.Component {
+class Login extends React.Component {
 	constructor(props) {
 		super(props);
 
@@ -67,6 +67,7 @@ class Login extend React.Component {
 			? this.setState({ enableSubmit: true })
 			: this.setState({ enableSubmit: false });
 	}
+    render (){
     return (
         <React.Fragment>
             <div className={css(styles['App-body'])}>
@@ -84,5 +85,5 @@ class Login extend React.Component {
 	</div>
         </React.Fragment>
     );
-}
+    }}
 export default Login;

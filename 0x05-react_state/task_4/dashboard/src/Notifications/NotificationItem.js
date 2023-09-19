@@ -23,26 +23,32 @@ const styles = StyleSheet.create({
 	},
 });
 
-class NotifiactionItem extends React.Component {
+class NotificationItem extends React.Component {
   render () { 	
- const { type, html, value, markAsRead, id }) => this.props;
-  return (
+    const { type, html, value, markAsRead, id } = this.props;
+    return (
     <>
     {type && value ? (
-    <li className={type === 'default' ? css(styles.default) : css(styles.urgent)} onClick={() => markAsRead(id)} data-notification-type={type}>{value}</li> : null}
-    {html ? <li className={css(styles.urgent)} onClick={() => markAsRead(id)} data-urgent dangerouslySetInnerHTML={{ __html: html}}></li> : null}
+  <li className={type === 'default' ? css(styles.default) : css(styles.urgent)} onClick={() => markAsRead(id)} data-notification-type={type}>
+    {value}
+  </li>
+) : null}
+{html ? (
+  <li className={css(styles.urgent)} onClick={() => markAsRead(id)} data-urgent dangerouslySetInnerHTML={{ __html: html }}></li>
+) : null}
     </>
   );
-};
+}
+}
 
 NotificationItem.propTypes = {
-	type: PropTypes.string.isRequired,
-	value: PropTypes.string,
-	__html: PropTypes.shape({
-	html: PropTypes.string,
-	}),
-        markAsRead: PropTypes.func,
-        id: PropTypes.number,
+  type: PropTypes.string.isRequired,
+  value: PropTypes.string,
+  html: PropTypes.shape({
+    __html: PropTypes.string,
+  }),
+  markAsRead: PropTypes.func,
+  id: PropTypes.number,
 };
 
 NotificationItem.defaultProps = {

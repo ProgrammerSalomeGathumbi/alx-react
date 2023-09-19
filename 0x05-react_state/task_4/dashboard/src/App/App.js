@@ -6,8 +6,8 @@ import Footer from '../Footer/Footer';
 import CourseList from '../CourseList/CourseList';
 import { getLatestNotification} from "../utils/utils";
 import PropTypes from 'prop-types';
-import BodySectionWithMarginBottom from './BodySectionWithMarginBottom';
-import BodySection from './BodySection';
+import BodySectionWithMarginBottom from '../BodySection/BodySectionWithMarginBottom';
+import BodySection from '../BodySection/BodySection';
 import { StyleSheet, css } from 'aphrodite';
 import { AppContext, defaultUser } from './AppContext';
 
@@ -33,13 +33,16 @@ const styles = StyleSheet.create({
 class App extends React.Component {
  constructor(props) {
    super(props);
-this.state = { displayDrawer: false, user: defaultUser,	logOut: () => {this.setState({ user: defaultUser }); 
-         listNotifications = [
-	{ id: 1, type: 'default', value: 'New course available' },
-	{ id: 2, type: 'urgent', value: 'New resume available' },
-	{ id: 3, type: 'urgent', html: getLatestNotification() },
+   this.state = { 
+         displayDrawer: false,
+	 user: defaultUser,
+	 logOut: () => {this.setState({ user: defaultUser })}, 
+         listNotifications: [
+	    { id: 1, type: 'default', value: 'New course available' },
+	    { id: 2, type: 'urgent', value: 'New resume available' },
+	    { id: 3, type: 'urgent', html: getLatestNotification() },
          ],
-          };
+  };
 
 		this.handleDisplayDrawer = this.handleDisplayDrawer.bind(this);
 	 	this.handleHideDrawer = this.handleHideDrawer.bind(this);
@@ -54,8 +57,8 @@ this.state = { displayDrawer: false, user: defaultUser,	logOut: () => {this.setS
 ];
 
 
-handleKeyDown = (event) => {
-  if (event.ctrlKey && event.key == 'h') {
+handleKeyPress = (event) => {
+  if (event.ctrlKey && event.key === 'h') {
     alert('Logging you out');
     this.state.logOut();    
   }
@@ -95,8 +98,8 @@ markNotificationAsRead(id) {
       <React.Fragment>
       <AppContext.Provider value={{ user, logOut }}>
       <div className={css(styles.App)}>
-      <div className={css(styles.heading-section)}>
-      <Notifications markNotificationAsRead={this.markNotificationAsRead}  listNotifications={this.listNotifications} displayDrawer={this.state.displayDrawer} handleDisplayDrawer={this.handleDisplayDrawer} handleHideDrawer={this.handleHideDrawer}/>
+      <div className={css(styles['heading-section'])}>
+      <Notifications markNotificationAsRead={this.markNotificationAsRead}  listNotifications={this.state.listNotifications} displayDrawer={this.state.displayDrawer} handleDisplayDrawer={this.handleDisplayDrawer} handleHideDrawer={this.handleHideDrawer}/>
       <Header />
       </div>
       {this.state.user.isLoggedIn ? (
@@ -110,7 +113,7 @@ markNotificationAsRead(id) {
       <BodySection title='News from the School'>
          <p>some random text</p>
       </BodySection>
-      <Footer className={css(styles.App-footer)}/>
+      <Footer className={css(styles['App-footer'])}/>
       </div>
       </AppContext.Provider>
       </React.Fragment>

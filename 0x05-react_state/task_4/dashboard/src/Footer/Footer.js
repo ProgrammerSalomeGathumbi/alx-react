@@ -14,6 +14,8 @@ const Footer = () => {
         <div className="App-footer">
 	<p>Copyright {getFullYear()} - {getFooterCopy()}</p>
 	</div>
+	</div>
+	)}
       </AppContext.Consumer>   
     );
 }

@@ -24,20 +24,23 @@ const styles = StyleSheet.create({
 	},
 });
 class Header extends React.Component {
+   static contextType = AppContext;
+   render() {   
    const data = this.context;
    return (
 
-    <div className={css(style['App-header'])}>
-        <img src={logo} className={css(style.img)} alt="logo" />
+    <div className={css(styles['App-header'])}>
+        <img src={logo} className={css(styles.img)} alt="logo" />
 	<h1>School dashboard</h1>
-	</div>
 	{data.user.isLoggedIn && (
 	<div className={css(styles.greeting)} id='logoutSection'>
 	Welcome {data.user.email}{' '}
 	<a className={css(styles.logout)} onClick={data.logOut}>(logout)</a>
 	</div>
 	)}
+	</div>
    );
-}
+   }
+   }
 Header.contextType = AppContext;
 export default Header;

@@ -1,19 +1,19 @@
-import React from "react";
+import React, { Component, PureComponent }from "react";
 import closeIcon from "../assets/close-icon.png";
 import NotificationItem from "./NotificationItem";
 import PropTypes from 'prop-types';
 import NotificationItemShape from './NotificationItemShape';
 import { StyleSheet, css } from 'aphrodite';
 
-const fadeIn = keyframes({
+const fadeIn = {
   '0%': { opacity: 0.5 },
   '100%': { opacity: 1 },
-});
+};
 
-const bounce = keyframes({
+const bounce = {
   '0%, 100%': { transform: 'translateY(0px)' },
   '50%': { transform: 'translateY(-5px)' },
-});
+};
 
 const styles = StyleSheet.create({
 	Notifications: {
@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
                   animationName: [fadeIn, bounce], 
                   animationDuration: '1s, 0.5s', 
                   animationIterationCount: '3', 
-	},
+		  }},
 	'notification-header': {
 		display: 'flex',
 		justifyContent: 'space-between',
@@ -81,7 +81,7 @@ class Notifications extends PureComponent {
                            ) : (
 			  <div className={css(styles['notification-header'])}>
                           <NotificationItem value='No new notification for now' />
-			  <button aria-label='Close' onClick={console.log('Close button has been clicked')} handleHideDrawer(); >
+			  <button aria-label='Close' onClick={() => { console.log('Close button has been clicked'); handleHideDrawer(); }}>
                           <img src={closeIcon} alt='Close-Icon'	/>
 			  </button>
 			  </div>
@@ -89,8 +89,8 @@ class Notifications extends PureComponent {
 			  </ul>
 			  </div>
 			  </div>
-			  ) : (
-			)}
+	  ) :  null}
+	  </div>
     </React.Fragment>
 	);
 };
@@ -98,7 +98,7 @@ class Notifications extends PureComponent {
 
 Notifications.propTypes = {
 	displayDrawer: PropTypes.bool,
-        listNotificatins:PropTypes.arrayof(NotificationItemShape),
+        listNotifications:PropTypes.arrayOf(NotificationItemShape),
         handleDisplayDrawer: PropTypes.func,
         handleHideDrawer: PropTypes.func,
 	markNotificationAsRead: PropTypes.func,
