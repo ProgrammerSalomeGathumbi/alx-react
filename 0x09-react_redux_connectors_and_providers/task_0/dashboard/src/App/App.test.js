@@ -7,6 +7,7 @@ import Footer from '../Footer/Footer';
 import Header from '../Header/Header';
 import CourseList from '../CourseList/CourseList';
 import { shallow, mount } from 'enzyme';
+import { mapStateToProps } from './App';
 
 beforeEach(() => {
 	StyleSheetTestUtils.suppressStyleInjection();
@@ -158,4 +159,29 @@ describe('markNotificationAsRead works as intended', () => {
 		]);
 		expect(wrapper.state().listNotifications).toHaveLength(1);
 	});
+});
+describe('mapStateToProps', () => {
+  it('returns the correct object when user is logged in', () => {
+    const state = Immutable.fromJS({
+      isUserLoggedIn: true 
+    });
+
+    const props = mapStateToProps(state);
+
+    expect(props).toEqual({
+      isLoggedIn: true
+    });
+  });
+
+  it('returns the correct object when user is not logged in', () => {
+    const state = Immutable.fromJS({
+      isUserLoggedIn: false 
+    });
+
+    const props = mapStateToProps(state);
+
+    expect(props).toEqual({
+      isLoggedIn: false
+    });
+  });
 });

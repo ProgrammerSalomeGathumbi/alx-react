@@ -10,6 +10,7 @@ import BodySectionWithMarginBottom from '../BodySection/BodySectionWithMarginBot
 import BodySection from '../BodySection/BodySection';
 import { StyleSheet, css } from 'aphrodite';
 import { AppContext, defaultUser } from './AppContext';
+import { connect } from 'react-redux'; 
 
 const styles = StyleSheet.create({
 	App: {
@@ -121,4 +122,9 @@ markNotificationAsRead(id) {
 }
 }
 
-export default App;
+const mapStateToProps = (state) => {
+	  return {
+		      isLoggedIn: state.uiReducer.isLoggedIn 
+					    };
+};
+export default connect(mapStateToProps)(App);
